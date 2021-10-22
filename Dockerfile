@@ -5,7 +5,7 @@ RUN pip install --upgrade numpy matplotlib networkx qiskit~=0.24.0 cirq~=0.10.0
 
 # Configure grader user
 RUN useradd -m grader
-rm -rf /home/grader
+RUN rm -rf /home/grader
 ##RUN chown -R grader:grader /home/grader
 USER grader
 # Add user site-packages to python path
