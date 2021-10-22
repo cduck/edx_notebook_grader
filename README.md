@@ -8,7 +8,7 @@ Submodule repos:
 - [lab notebook sources (private)](https://github.com/cduck/quantum_computer_systems_design_labs)
 
 
-# Install and Run
+## Install and Run
 
 Install:
 ```bash
@@ -30,7 +30,32 @@ Run the server (make sure this is always running, otherwise submissions won't ge
 ./run-server.sh
 ```
 
-### File structure for grader-root/
+## EdX Studio Configuration
+To use this grader, you must also configure the problem submission page in your EdX course.
+
+How to add the problem submission component:
+1. Edit the course with [studio.edx.org](https://studio.edx.org).
+2. Go to a subsection and select "Add New Component" > "Problem" > "Advanced" > "Blank Advanced Problem"
+3. Click "EDIT" and paste in the below XML:
+    ```xml
+    <problem>
+      <coderesponse queuename="uchicago-qcs-xqueue">
+        <label>Submit your completed IPython notebook (.ipynb file).</label>
+        <filesubmission id="notebook" allowed_files="psXX.ipynb" required_files="psXX.ipynb"/>
+        <codeparam>
+          <grader_payload>
+            {"name": "psXX"}
+          </grader_payload>
+        </codeparam>
+      </coderesponse>
+    </problem>
+    ```
+4. Remember to replace `psXX` with the actual assignment name (3 locations in the XML) and `uchicago-qcs-xqueue` with the course's XQueue name.
+5. "Publish" the subsection and "View Live Version" to test the submission process.  (Clicking "Submit" when viewing the problem in studio.edx.org doesn't work.)
+
+See [the EdX docs on external graders](https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/exercises_tools/external_graders.html#olx-definition) for more information.
+
+## File structure for grader-root/
 - edx_notebook_grader
     - grader-root/
         - conf.d/
