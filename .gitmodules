@@ -1,9 +1,9 @@
 [submodule "dockernel"]
 	path = dockernel
-	url = https://github.com/cduck/dockernel
+	url = ssh://git@github.com/cduck/dockernel
 [submodule "jupyter_grade_server"]
 	path = jupyter_grade_server
-	url = https://github.com/cduck/jupyter_grade_server
+	url = ssh://git@github.com/cduck/jupyter_grade_server
 [submodule "grader-root"]
 	path = grader-root
-	url = https://github.com/cduck/quantum_computer_systems_design_labs
+	url = ssh://git@github.com/cduck/quantum_computer_systems_design_labs
