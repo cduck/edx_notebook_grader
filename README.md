@@ -12,6 +12,10 @@ Submodule repos:
 
 Install:
 ```bash
+git clone https://github.com/cduck/edx_notebook_grader
+cd edx_notebook_grader
+git submodule init
+git submodule update
 ./install.sh
 ```
 
