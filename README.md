@@ -55,8 +55,8 @@ How to add the problem submission component:
 
 See [the EdX docs on external graders](https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/exercises_tools/external_graders.html#olx-definition) for more information.
 
-## File structure for grader-root/
-- edx_notebook_grader
+## File structure for grader-root
+- edx_notebook_grader/
     - grader-root/
         - conf.d/
             - [600.json](https://github.com/cduck/jupyter_grade_server#json-configuration-file)
