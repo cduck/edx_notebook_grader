@@ -40,7 +40,7 @@ How to add the problem submission component:
     ```xml
     <problem>
       <coderesponse queuename="uchicago-qcs-xqueue">
-        <label>Submit your completed IPython notebook (.ipynb file).</label>
+        <label>Submit your completed IPython notebook (.ipynb file) for Lab XX here.  Feedback and any error messages will be shown below.  It may take up to a few minutes to grade.</label>
         <filesubmission id="notebook" allowed_files="psXX.ipynb" required_files="psXX.ipynb"/>
         <codeparam>
           <grader_payload>
@@ -50,8 +50,9 @@ How to add the problem submission component:
       </coderesponse>
     </problem>
     ```
-4. Remember to replace `psXX` with the actual assignment name (3 locations in the XML) and `uchicago-qcs-xqueue` with the course's XQueue name.
-5. "Publish" the subsection and "View Live Version" to test the submission process.  (Clicking "Submit" when viewing the problem in studio.edx.org doesn't work.)
+4. Remember to replace `psXX` with the actual assignment name (4 locations in the XML) and `uchicago-qcs-xqueue` with the course's XQueue name.
+5. Switch from the "EDITOR" to "SETTINGS" and set the "Problem Weight" to 100.
+6. "Publish" the subsection and "View Live Version" to test the submission process.  (Clicking "Submit" when viewing the problem in studio.edx.org doesn't work.)
 
 See [the EdX docs on external graders](https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/exercises_tools/external_graders.html#olx-definition) for more information.
 
