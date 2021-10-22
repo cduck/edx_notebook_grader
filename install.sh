@@ -9,7 +9,6 @@ set -euxo pipefail
 cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
 # Create a new Python venv
-rm -rf server-env || true
 python3 -m venv server-env
 set +x
 source server-env/bin/activate
@@ -44,4 +43,4 @@ jupyter nbextension enable --sys-prefix --py nbgrader
 jupyter serverextension enable --sys-prefix --py nbgrader
 
 # Generate notebook and database files needed by the server
-./regenerate-notebooks.py
+python regenerate-notebooks.py

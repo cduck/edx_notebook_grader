@@ -22,7 +22,7 @@ git submodule update
 Create and edit notebooks (one per assignment):
 ```bash
 ./edit-notebooks.sh
-./regenerate-notebooks.py
+./regenerate-notebooks.sh
 ```
 
 Run the server (make sure this is always running, otherwise submissions won't get graded):

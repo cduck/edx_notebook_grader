@@ -3,7 +3,7 @@
 # This script runs the grade server.  It must always be running.  Otherwise when
 # students submit on EdX, they will not receive immediate feedback or a grade.
 #
-# Do not run while regenerate-notebooks.py is running!
+# Do not run while regenerate-notebooks.sh is running!
 #
 
 set -euxo pipefail
