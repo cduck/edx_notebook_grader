@@ -16,8 +16,8 @@ source server-env/bin/activate
 set -x
 
 # Install notebook Python dependencies
-# wheel seems to need to be first (at lease for Python 3.6)
-pip install wheel
+# wheel and numpy seem to need to be first (at least for Python 3.6)
+pip install wheel numpy
 # Pinning nbgrader version to avoid possible compatibility issues
 # Newer jupyter version's have coroutine (jupyter-client 6.1.13, 6.2.0, and 7.0.6 (latest))
 pip install nbgrader==0.6.2 docker jupyter-client==6.1.12 ansi2html==1.6.0
@@ -30,9 +30,11 @@ pip install --no-dependencies -e jupyter_grade_server
 docker build --tag sandbox-python-kernel .
 # Install Jupyter docker kernel
 # dockernel is patched from https://github.com/MrMino/dockernel
-pip install -e ./dockernel
+pushd grader-root  # Avoid Python import-from-local-dir issues
+pip install -e .
 yes| jupyter kernelspec uninstall -y sandbox-python-kernel || true
 yes| dockernel install sandbox-python-kernel --name sandbox-python-kernel
+popd
 
 # Only used for manually editing the source notebooks (edit-notebooks.sh)
 # Install the nbgrader Jupyter extension needed to mark notebook cells as
