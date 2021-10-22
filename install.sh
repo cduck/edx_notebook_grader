@@ -31,9 +31,9 @@ docker build --tag sandbox-python-kernel .
 # Install Jupyter docker kernel
 # dockernel is patched from https://github.com/MrMino/dockernel
 pushd grader-root  # Avoid Python import-from-local-dir issues
-pip install -e .
+pip install -e ../dockernel
 yes| jupyter kernelspec uninstall -y sandbox-python-kernel || true
-yes| dockernel install sandbox-python-kernel --name sandbox-python-kernel
+yes| dockernel install sandbox-python-kernel --name sandbox-python-kernel || true
 popd
 
 # Only used for manually editing the source notebooks (edit-notebooks.sh)

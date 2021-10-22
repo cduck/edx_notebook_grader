@@ -21,10 +21,13 @@ base_path = Path(__file__).parent / 'grader-root' / 'relocate'
 
 
 # Remove old data
-(base_path / 'gradebook.db').remove()
-(base_path / 'autograded').rmtree()
-(base_path / 'feedback').rmtree()
-(base_path / 'release').rmtree()
+try:
+    (base_path / 'gradebook.db').remove()
+except FileNotFoundError:
+    pass
+(base_path / 'autograded').rmtree(ignore_errors=True)
+(base_path / 'feedback').rmtree(ignore_errors=True)
+(base_path / 'release').rmtree(ignore_errors=True)
 
 
 # Generate assignments (released versions are put in the 'release' directory)
